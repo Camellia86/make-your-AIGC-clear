@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aigc-clear"
+version = "0.1.0"
+description = "Frozen image editing with material masks and exact protected pixels"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dependencies = ["numpy>=1.23", "Pillow>=9", "scipy>=1.9"]
+
+[project.optional-dependencies]
+openai = ["openai>=2"]
+klein = ["torch>=2.8", "diffusers==0.37.1", "transformers==4.56.1", "accelerate>=1.10", "sentencepiece>=0.2", "safetensors>=0.7"]
+
+[project.scripts]
+aigc-clear = "aigc_clear.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
